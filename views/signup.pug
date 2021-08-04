@@ -2,3 +2,11 @@ extends layout
 
 block content
   h1= title
+  form(action="/sign-up" method="POST")
+    div
+      label(for="username") Username: 
+      input#username(type="text" placeholder="Username" name="username" required="true")
+    div
+      label(for="password") Password: 
+      input#password(type="password" placeholder="Password" name="password" required="true")
+    button(type="submit") Submit

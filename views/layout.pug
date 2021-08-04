@@ -4,4 +4,11 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav.navbar 
+      h3 Members Only 
+      ul.signup-login 
+        li 
+          a(href="/log-in") Log in 
+        li 
+          a(href="/sign-up") Sign up
     block content
