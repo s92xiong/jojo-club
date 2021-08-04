@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/routes');
 // const usersRouter = require('./routes/users');
 
 const app = express();
