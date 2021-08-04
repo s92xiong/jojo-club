@@ -10,7 +10,7 @@ router.get('/', index_controller.index);
 
 /// ------------------------------ SIGNUP ROUTES ------------------------------ ///
 router.get('/sign-up', signup_controller.signup_get);
-// router.post('/sign-up', signup_controller.signup_post);
+router.post('/sign-up', signup_controller.signup_post);
 
 
 
