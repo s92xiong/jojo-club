@@ -3,17 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 require("dotenv").config();
 
-// Import Mongoose & set up default mongoose connection
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
 const mongoose = require("mongoose");
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const indexRouter = require('./routes/routes');
-// const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -28,7 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
