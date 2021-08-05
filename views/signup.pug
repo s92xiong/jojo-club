@@ -11,4 +11,12 @@ block content
     div
       label(for="password") Password: 
       input#password(type="password" placeholder="Password" name="password" required="true")
+    div
+      label(for="confirmPassword") Confirm Password: 
+      input#confirmPassword(type="password" placeholder="Confirm Password" name="confirmPassword" required="true")
+      if (passwordConfirmationError)
+        p(style="color: red;") #{passwordConfirmationError}
     button(type="submit") Submit
+
+  if (errors)
+    p #{errors}
