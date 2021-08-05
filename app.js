@@ -7,6 +7,9 @@ require("dotenv").config();
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const User = require("./models/userModel");
+const bcrypt = require("bcryptjs");
+const session = require("express-session"); // Dependency of passport.js
 
 const mongoose = require("mongoose");
 const mongoDB = process.env.MONGODB_URI;
@@ -25,6 +28,34 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+passport.use(new LocalStrategy((username, password, done) => {
+  User.findOne({ username: username }, (err, user) => {
+    if (err) return done(err);
+    if (!user) return done(null, false, { message: "Incorrect username" });
+    bcrypt.compare(password, user.password, (err, res) => {
+      if (err) return done(err);
+      // Passwords match, log user in!
+      if (res) return done(null, user);
+      // Passwords do not match!
+      else return done(null, false, { message: "Incorrect password" });
+    });
+  });
+}));
+
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser((id, done) => User.findById(id, (err, user) => done(err, user)));
+
+// Secret value should be a process env value
+app.use(session({ secret: "jojo", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 app.use('/', indexRouter);
 
