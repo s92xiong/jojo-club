@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const index_controller = require("../controllers/indexController");
-const signup_controller = require("../controllers/signupController");
+const signup_controller = require("../controllers/authController");
 
 /// ------------------------------ HOMEPAGE ------------------------------ ///
 router.get('/', index_controller.index);
