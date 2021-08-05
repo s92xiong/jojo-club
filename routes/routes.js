@@ -18,12 +18,6 @@ router.post('/sign-up', signup_controller.signup_post);
 
 
 
-/// ------------------------------ USER ROUTES ------------------------------ ///
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-
 /// ------------------------------ MESSAGE ROUTES ------------------------------ ///
 
 

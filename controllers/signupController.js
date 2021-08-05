@@ -13,11 +13,12 @@ exports.signup_post = [
 
   (req, res, next) => {
     async.parallel({
+      // Check to see if username is already taken
       someUser: function(cb) { User.find({ "username": req.body.username }).exec(cb) },
     }, (err, results) => {
       if (err) return next(err);
-      // If the username already exists, re-render sign-up form
-      if (!results) return res.render("signup", { title: "Sign Up" });
+      // If the username is taken, re-render sign-up form with an error message ("results" returns an array)
+      if (results.someUser.length > 0) return res.render("signup", { title: "Sign Up", error: "User already exists" });
       // If username does not exist, continute to register new user to db
       bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
         if (err) return next(err);
