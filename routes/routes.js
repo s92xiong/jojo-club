@@ -18,10 +18,7 @@ router.post("/log-in", auth_controller.login_post);
 
 
 /// ------------------------------ LOGOUT ROUTES ------------------------------ ///
-// router.get("/log-out", (req, res) => {
-//   req.logout();
-//   res.redirect("/");
-// });
+router.get("/log-out", auth_controller.logout_get);
 
 
 /// ------------------------------ MESSAGE ROUTES ------------------------------ ///

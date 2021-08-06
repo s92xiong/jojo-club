@@ -17,7 +17,7 @@ exports.signup_post = [
       return true;
     }),
 
-  (req, res, next) => {
+  async (req, res, next) => {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -25,13 +25,9 @@ exports.signup_post = [
       return res.render("signup", { title: "Sign Up", passwordConfirmationError: "Passwords must be the same" });
     }
 
-    async.parallel({
-      // Check to see if username is already taken
-      someUser: function(cb) { User.find({ "username": req.body.username }).exec(cb) },
-    }, (err, results) => {
-      if (err) return next(err);
-      // If the username is taken, re-render sign-up form with an error message ("results" returns an array)
-      if (results.someUser.length > 0) return res.render("signup", { title: "Sign Up", error: "User already exists" });
+    try {
+      const isUserInDB = await User.find({ "username": req.body.username });
+      if (isUserInDB.length > 0) return res.render("signup", { title: "Sign Up", error: "User already exists" });
       // If username does not exist, continute to register new user to db
       bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
         if (err) return next(err);
@@ -42,7 +38,9 @@ exports.signup_post = [
           admin: false
         }).save(err => err ? next(err) : res.redirect("/"));
       });
-    });
+    } catch (err) {
+      return next(err);
+    }
   }
 ];
 
@@ -55,3 +53,8 @@ exports.login_post = passport.authenticate("local", {
   failureRedirect: "/log-in",
   // failureFlash: true
 });
+
+exports.logout_get = (req, res) => {
+  req.logout();
+  res.redirect("/");
+}

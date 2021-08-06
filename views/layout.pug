@@ -6,9 +6,14 @@ html
   body
     nav.navbar 
       h3 Members Only 
-      ul.signup-login 
-        li 
-          a(href="/log-in") Log in 
-        li 
-          a(href="/sign-up") Sign up
+      if (!user)
+        ul.signup-login 
+          li 
+            a(href="/log-in") Log in 
+          li 
+            a(href="/sign-up") Sign up
+      else 
+        ul.logout 
+          li
+            a(href="/log-out") Log out 
     block content
