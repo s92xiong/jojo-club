@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  if (user)
+    p #{user}
+  form(action="/member" method="POST")
+    div
+      label(for="password") Username: 
+      input#password(type="text" placeholder="Enter the member password" name="password" required="true")
+    button(type="submit") Login
+
+  if (errors)
+    p #{errors}

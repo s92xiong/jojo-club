@@ -1,8 +1,5 @@
 extends layout
 
 block content
-  h1= title
   if (user)
-    h1 Welcome Back #{user.username}
-  else
-    p Welcome to #{title}
+    h3 Welcome Back #{user.username}

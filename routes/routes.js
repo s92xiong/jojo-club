@@ -21,9 +21,9 @@ router.post("/log-in", auth_controller.login_post);
 router.get("/log-out", auth_controller.logout_get);
 
 
-/// ------------------------------ MESSAGE ROUTES ------------------------------ ///
-
-
+/// ------------------------------ BECOME A MEMBER ------------------------------ ///
+router.get("/member", auth_controller.member_get);
+// router.post("/member", auth_controller.memer_post);
 
 
 module.exports = router;

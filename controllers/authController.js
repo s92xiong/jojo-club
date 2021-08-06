@@ -1,5 +1,4 @@
 const User = require("../models/userModel");
-const async = require("async");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
@@ -58,3 +57,20 @@ exports.logout_get = (req, res) => {
   req.logout();
   res.redirect("/");
 }
+
+exports.member_get = (req, res, next) => {
+  if (!res.locals.currentUser) {
+    // User cannot access the members form unless logged in
+    return res.redirect("/log-in");
+  } else {
+    return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser  });
+  }
+};
+
+exports.member_post = async (req, res, next) => {
+  // If user is logged in, show the members tab
+    // If user is not logged in and tries to go to "members" url, re-route them to the login-page
+  // 1. Find the current user that is logged in
+  // 2. Update the user's member status to true
+  console.log(req.user);
+};

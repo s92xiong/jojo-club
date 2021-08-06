@@ -5,15 +5,19 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav.navbar 
-      h3 Members Only 
+      h3 Members Only
+      //- If User is NOT logged in
       if (!user)
         ul.signup-login 
           li 
             a(href="/log-in") Log in 
           li 
             a(href="/sign-up") Sign up
+      //- If User IS logged in
       else 
         ul.logout 
           li
             a(href="/log-out") Log out 
+          li 
+            a(href="/member") Become a member   
     block content

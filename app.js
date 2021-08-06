@@ -4,17 +4,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require("dotenv").config();
-
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/userModel");
 const bcrypt = require("bcryptjs");
 const session = require("express-session"); // Dependency of passport.js
 
+// Establish database connection
 const mongoose = require("mongoose");
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// Import routes
 const indexRouter = require('./routes/routes');
 
 const app = express();
@@ -52,6 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+// Access the user object from anywhere in our application
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
