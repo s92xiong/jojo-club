@@ -6,7 +6,7 @@ block content
   form(action="/member" method="POST")
     div
       label(for="passcode") Enter the Passcode: 
-      input#passcode(type="text" placeholder="Passcode" name="passcode" required="true")
+      input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
     button(type="submit") Submit Passcode
 
   if (passcodeError)

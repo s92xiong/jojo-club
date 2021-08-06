@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const index_controller = require("../controllers/indexController");
 const auth_controller = require("../controllers/authController");
+const user_controller = require("../controllers/userController")
 
 /// ------------------------------ HOMEPAGE ------------------------------ ///
 router.get('/', index_controller.index);
@@ -22,8 +23,8 @@ router.get("/log-out", auth_controller.logout_get);
 
 
 /// ------------------------------ BECOME A MEMBER ------------------------------ ///
-router.get("/member", auth_controller.member_get);
-router.post("/member", auth_controller.member_post);
+router.get("/member", user_controller.member_get);
+router.post("/member", user_controller.member_post);
 
 
 module.exports = router;
