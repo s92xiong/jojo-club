@@ -23,7 +23,7 @@ router.get("/log-out", auth_controller.logout_get);
 
 /// ------------------------------ BECOME A MEMBER ------------------------------ ///
 router.get("/member", auth_controller.member_get);
-// router.post("/member", auth_controller.memer_post);
+router.post("/member", auth_controller.member_post);
 
 
 module.exports = router;

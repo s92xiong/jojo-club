@@ -67,10 +67,25 @@ exports.member_get = (req, res, next) => {
   }
 };
 
-exports.member_post = async (req, res, next) => {
-  // If user is logged in, show the members tab
-    // If user is not logged in and tries to go to "members" url, re-route them to the login-page
-  // 1. Find the current user that is logged in
-  // 2. Update the user's member status to true
-  console.log(req.user);
-};
+exports.member_post = [
+  body("passcode").trim().isLength({ min: 1 }).escape().withMessage("Passcode must be specified."),
+  
+  async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      // If there is an error submitting the member validation form, re-render the form with an error
+      return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser, errors: errors.array() });
+    } else if (req.body.passcode !== "jojo") {
+      return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser, passcodeError: "Wrong Passcode" });
+    }
+
+    const user = new User(res.locals.currentUser);
+    user.member = true;
+
+    await User.findByIdAndUpdate(res.locals.currentUser._id, user, {}, (err) => {
+      if (err) return next(err);
+      return res.redirect("/");
+    });
+  },
+];

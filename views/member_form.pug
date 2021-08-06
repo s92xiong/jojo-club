@@ -2,13 +2,15 @@ extends layout
 
 block content
   h1= title
-  if (user)
-    p #{user}
+  
   form(action="/member" method="POST")
     div
-      label(for="password") Username: 
-      input#password(type="text" placeholder="Enter the member password" name="password" required="true")
-    button(type="submit") Login
+      label(for="passcode") Enter the Passcode: 
+      input#passcode(type="text" placeholder="Passcode" name="passcode" required="true")
+    button(type="submit") Submit Passcode
+
+  if (passcodeError)
+    p(style="color: red") #{passcodeError}
 
   if (errors)
     p #{errors}
