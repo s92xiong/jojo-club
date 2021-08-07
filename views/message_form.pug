@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  h1= title 
+  form(action="/create-message" method="POST")
+    div.title-container
+      label(for="messageTitle") Title:
+      input#messageTitle(type="text" placeholder="Enter a title" name="messageTitle" required="true")
+    div.text-container
+      label(for="messageText") Message:
+      input#messageText(type="text" placeholder="Enter a message" name="messageText" required="true")
+    button(type="submit") Submit Message
+
+  if (errors)
+    p #{errors}

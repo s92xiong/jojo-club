@@ -26,5 +26,8 @@ router.get("/log-out", auth_controller.logout_get);
 router.get("/member", user_controller.member_get);
 router.post("/member", user_controller.member_post);
 
+/// ------------------------------ CREATE A MESSAGE ------------------------------ ///
+router.get("/create-message", user_controller.create_message_get);
+router.post("/create-message", user_controller.create_message_post);
 
 module.exports = router;
