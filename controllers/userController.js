@@ -7,12 +7,6 @@ exports.member_get = (req, res, next) => {
     // User cannot access the members form unless logged in
     return res.redirect("/log-in");
   }
-  
-  // else if (res.locals.currentUser.member) {
-  //   // Redirect user to homepage if they are already a member
-  //   return res.redirect("/");
-  // }
-
   return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser  });
 };
 
@@ -48,8 +42,8 @@ exports.create_message_get = (req, res, next) => {
 };
 
 exports.create_message_post = [
-  body("messageTitle").trim().isLength({ min: 1 }).escape().withMessage("Title must not be empty"),
-  body("messageText").trim().isLength({ min: 1 }).escape().withMessage("Text must not be empty"),
+  body("messageTitle").trim().isLength({ min: 1 }).withMessage("Title must not be empty"),
+  body("messageText").trim().isLength({ min: 1 }).withMessage("Text must not be empty"),
 
   async (req, res, next) => {
     const errors = validationResult(req);

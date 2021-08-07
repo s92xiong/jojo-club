@@ -3,3 +3,11 @@ extends layout
 block content
   if (user)
     h3 Welcome Back #{user.username}
+  
+  div.messages-container
+    each message in messages
+      div(style="border-bottom: 1px solid grey; padding: 10px 0")     
+        h4= message.title
+        p= message.text 
+        p= message.timestamp
+      
