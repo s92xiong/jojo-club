@@ -5,10 +5,13 @@ exports.member_get = (req, res, next) => {
   if (!res.locals.currentUser) {
     // User cannot access the members form unless logged in
     return res.redirect("/log-in");
-  } else if (res.locals.currentUser.member) {
-    // Redirect user to homepage if they are already a member
-    return res.redirect("/");
   }
+  
+  // else if (res.locals.currentUser.member) {
+  //   // Redirect user to homepage if they are already a member
+  //   return res.redirect("/");
+  // }
+
   return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser  });
 };
 

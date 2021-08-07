@@ -18,9 +18,6 @@ html
         ul
           li
             a(href="/log-out") Log out 
-          if (!user.member)
-            li 
-              a(href="/member") Become a member   
-          else
-            li Member Status: Member
+          li
+            a(href="/member") Become a member   
     block content

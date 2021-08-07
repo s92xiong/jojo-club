@@ -2,15 +2,19 @@ extends layout
 
 block content
   h1= title
-  
-  form(action="/member" method="POST")
-    div
-      label(for="passcode") Enter the Passcode: 
-      input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
-    button(type="submit") Submit Passcode
 
-  if (passcodeError)
-    p(style="color: red") #{passcodeError}
+  if (!user.member)  
+    form(action="/member" method="POST")
+      div
+        label(for="passcode") Enter the Passcode: 
+        input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
+      button(type="submit") Submit Passcode
 
-  if (errors)
-    p #{errors}
+    if (passcodeError)
+      p(style="color: red") #{passcodeError}
+
+    if (errors)
+      p #{errors}
+
+  else
+    p You are already a member!
