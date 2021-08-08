@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+
+  if (!user.admin)  
+    form(action="/admin" method="POST")
+      div
+        label(for="passcode") Enter the Admin Passcode: 
+        input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
+      button(type="submit") Submit Passcode
+
+    if (passcodeError)
+      p(style="color: red") #{passcodeError}
+
+    if (errors)
+      p #{errors}
+
+  else
+    p You are already an admin!

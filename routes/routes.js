@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const index_controller = require("../controllers/indexController");
 const auth_controller = require("../controllers/authController");
-const user_controller = require("../controllers/userController")
+const index_controller = require("../controllers/indexController");
+const message_controller = require("../controllers/messageController");
+const user_controller = require("../controllers/userController");
 
 /// ------------------------------ HOMEPAGE ------------------------------ ///
 router.get('/', index_controller.index);
@@ -25,7 +26,12 @@ router.post("/member", user_controller.member_post);
 
 
 /// ------------------------------ CREATE A MESSAGE ------------------------------ ///
-router.get("/create-message", user_controller.create_message_get);
-router.post("/create-message", user_controller.create_message_post);
+router.get("/create-message", message_controller.create_message_get);
+router.post("/create-message", message_controller.create_message_post);
+
+
+/// ------------------------------ BECOME AN ADMIN ------------------------------ ///
+router.get("/admin", user_controller.admin_get);
+router.post("/admin", user_controller.admin_post);
 
 module.exports = router;
