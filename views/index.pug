@@ -9,13 +9,17 @@ block content
       each message in messages
         div(style="border-bottom: 1px solid grey; padding: 10px 0")
           //- Render usernames of messages only if the user is logged in and is a member
-          if (!user || !user.member)
-            h4 Anonymous
-          else
+          if (user && user.member)
             h4= message.user.username
-          h4= message.title
-          p= message.text
-          if (!user || !user.member)
-            p Date Unavailable
-          else
+            h4= message.title
+            p= message.text
             p= message.date
+          else
+            h4 Anonymous User
+            h4= message.title
+            p= message.text
+            p Date Unavailable            
+          if (user && user.admin)
+            form(action="" method="POST")
+              input#messageId(type="hidden", name="messageId", required="true", value=message._id)
+              button(type="submit") Delete
