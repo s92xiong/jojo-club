@@ -14,6 +14,8 @@ block content
           else
             h4= message.user.username
           h4= message.title
-          p= message.text 
-          //- p= message.timestamp
-          p= message.date
+          p= message.text
+          if (!user || !user.member)
+            p Date Unavailable
+          else
+            p= message.date
