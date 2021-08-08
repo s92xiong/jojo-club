@@ -35,9 +35,6 @@ exports.create_message_post = [
 ];
 
 exports.delete_message_post = (req, res, next) => {
-  // Get id of the message
-  console.log(req.body.messageId);
-
   // Remove the message using the id from the database
   Message.findByIdAndRemove(req.body.messageId, function deleteMessage(err) {
     if (err) return next(err);
