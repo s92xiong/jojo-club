@@ -57,7 +57,9 @@ exports.create_message_post = [
       title: req.body.messageTitle,
       text: req.body.messageText,
       timestamp: Date.now()
-    }).save((err) => {
+    })
+    
+    await message.save((err) => {
       if (err) return next(err);
       res.redirect("/");
     });

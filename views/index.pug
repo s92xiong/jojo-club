@@ -4,10 +4,16 @@ block content
   if (user)
     h3 Welcome Back #{user.username}
   
-  div.messages-container
-    each message in messages
-      div(style="border-bottom: 1px solid grey; padding: 10px 0")     
-        h4= message.title
-        p= message.text 
-        p= message.timestamp
-      
+  if (messages)
+    div.messages-container
+      each message in messages
+        div(style="border-bottom: 1px solid grey; padding: 10px 0")
+          //- Render usernames of messages only if the user is logged in and is a member
+          if (!user || !user.member)
+            h4 Anonymous
+          else
+            h4= message.user.username
+          h4= message.title
+          p= message.text 
+          p= message.timestamp
+        
