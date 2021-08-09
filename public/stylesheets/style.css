@@ -7,14 +7,14 @@
 }
 
 body {
-  background-color: #1084fc;
+  background-color: #3993f3;
   font-family: 'Red Hat Display', sans-serif;
 }
 
 .container {
   margin: 0 auto;
   width: 75%;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 /* ------------------------------ NAVBAR ------------------------- */
@@ -114,4 +114,80 @@ body {
     justify-content: center;
     font-size: 0.8em;
   }
+}
+
+
+/* ------------------------------ MESSAGE LIST ------------------------- */
+
+.msg-container {
+  width: 65%;
+  height: auto;
+  margin: 3em auto;
+  padding: 1.5em 1.5em 0 1.5em;
+  background-color: white;
+  border-radius: 0.5em;
+}
+
+.msg-title {
+  margin: 0.25em 0 1.5em 0;
+  color: rgb(50, 50, 50);
+  font-weight: 500;
+  font-size: 1.05em;
+  overflow-wrap: break-word;
+}
+
+.msg-text {
+  color: rgb(75, 75, 75);
+  font-size: 0.95em;
+}
+
+.msg-info {
+  border-top: 1px solid lightgrey;
+  font-size: 0.8em;
+  margin: 2em 0 0 0;
+  padding: 2em 0 2em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.msg-username {
+  font-weight: 500;
+}
+
+.delete-msg {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0.5em;
+}
+
+.delete-msg button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.delete-msg button:hover {
+  color: red;
+}
+
+@media only screen and (max-width: 992px) {
+  .msg-container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .msg-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .msg-container {
+    width: 100%;
+    margin: 1.5em auto;
+  }
+
+  
 }
