@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
 exports.signup_get = (req, res, next) => {
-  res.render("signup", { title: "Sign Up" });
+  res.render("signup_form", { title: "Sign Up" });
 };
 
 exports.signup_post = [
@@ -21,12 +21,12 @@ exports.signup_post = [
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       console.log("ERROR!");
-      return res.render("signup", { title: "Sign Up", passwordConfirmationError: "Passwords must be the same" });
+      return res.render("signup_form", { title: "Sign Up", passwordConfirmationError: "Passwords must be the same" });
     }
 
     try {
       const isUserInDB = await User.find({ "username": req.body.username });
-      if (isUserInDB.length > 0) return res.render("signup", { title: "Sign Up", error: "User already exists" });
+      if (isUserInDB.length > 0) return res.render("signup_form", { title: "Sign Up", error: "User already exists" });
       // If username does not exist, continute to register new user to db
       bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
         if (err) return next(err);
@@ -46,7 +46,7 @@ exports.signup_post = [
 exports.login_get = (req, res) => {
   // If user is already logged in, redirect them to the homepage
   if (res.locals.currentUser) return res.redirect("/"); 
-  res.render("login", { title: "Login" });
+  res.render("login_form", { title: "Login" });
 };
 
 exports.login_post = passport.authenticate("local", {
