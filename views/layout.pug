@@ -4,24 +4,26 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav.navbar 
-      h3 Members Only
-      //- If User is NOT logged in
-      if (!user)
-        ul 
-          li 
-            a(href="/log-in") Log in 
-          li 
-            a(href="/sign-up") Sign up
-      //- If User IS logged in
-      else 
-        ul
-          li
-            a(href="/log-out") Log out 
-          li
-            a(href="/member") Become a Member
-          li 
-            a(href="/admin") Become an Admin 
-          li 
-            a(href="/create-message") Create Message 
-    block content
+    div.container
+      nav.navbar 
+        a(href="/").title
+          h3 Members Only
+        //- If User is NOT logged in
+        if (!user)
+          ul 
+            li 
+              a(href="/log-in") Log in 
+            li 
+              a(href="/sign-up") Sign up
+        //- If User IS logged in
+        else 
+          ul
+            a(href="/create-message") 
+              li Create Message
+            a(href="/member") 
+              li Member
+            a(href="/admin")  
+              li Admin
+            a(href="/log-out") 
+              li Log out 
+      block content
