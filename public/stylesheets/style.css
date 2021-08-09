@@ -11,19 +11,27 @@ body {
   font-family: 'Red Hat Display', sans-serif;
 }
 
+.container {
+  margin: 0 auto;
+  width: 75%;
+  max-width: 1400px;
+}
+
+/* ------------------------------ NAVBAR ------------------------- */
+
 .title {
   text-decoration: none;
   padding: 19px 0;
   color: white;
+  transition: 250ms;
 }
 
-.container {
-  margin: 0 auto;
-  width: 75%;
+.title:hover {
+  color: rgb(228, 228, 228);
 }
 
 .navbar {
-  margin-top: 2em;
+  margin: 2em 0;
   width: 100%;
   height: 60px;
   background-color: #282424;
@@ -52,13 +60,58 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  transition: 250ms;
 }
 
 .navbar ul li:hover {
-  background-color: #d42018;
-  border-radius: 3px;
+  background-color: #d40b00;
+  border-radius: 2px;
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 992px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar ul {
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .title {
+    font-size: 0.9em;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
   
+  .navbar ul a {
+    width: 100%;
+  }
+  
+  .navbar ul li {
+    padding: 1em 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+  }
 }

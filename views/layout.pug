@@ -3,6 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name="viewport" content="width=device-width,initial-scale=1.0")
   body
     div.container
       nav.navbar 
@@ -11,10 +12,10 @@ html
         //- If User is NOT logged in
         if (!user)
           ul 
-            li 
-              a(href="/log-in") Log in 
-            li 
-              a(href="/sign-up") Sign up
+            a(href="/log-in") 
+              li Log in
+            a(href="/sign-up")
+              li Sign up
         //- If User IS logged in
         else 
           ul
