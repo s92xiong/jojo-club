@@ -27,4 +27,7 @@ html
               li Admin
             a(href="/log-out") 
               li Log out 
+      
+      if (user)
+        p.username-layout User: #{user.username} 
       block content

@@ -17,6 +17,14 @@ body {
   max-width: 1200px;
 }
 
+.username-layout {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  color: white;
+  font-size: 0.9em;
+}
+
 /* ------------------------------ NAVBAR ------------------------- */
 
 .title {
@@ -125,9 +133,9 @@ body {
   height: auto;
   margin: 3em auto;
   padding: 1.5em 1.5em 0 1.5em;
-  background-color: white;
+  background-color: azure;
   border-radius: 0.5em;
-  box-shadow: 0 0 3px 3px rgba(255, 255, 255);
+  box-shadow: 0 0 3px 3px azure;
 }
 
 .msg-title {
@@ -164,7 +172,7 @@ body {
 
 .delete-msg button {
   border: none;
-  background-color: white;
+  background-color: azure;
   cursor: pointer;
   font-family: 'Red Hat Display', sans-serif;
 }
@@ -188,7 +196,7 @@ body {
 @media only screen and (max-width: 576px) {
   .msg-container {
     width: 100%;
-    margin: 1.5em auto;
+    margin: 2em auto;
   }
 
   .msg-info {
@@ -206,8 +214,8 @@ body {
   width: 60%;
   margin: 0 auto;
   padding: 2em 5em;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 5px 5px rgba(255, 255, 255);
+  background-color: azure;
+  box-shadow: 0 0 5px 5px azure;
   border-radius: 0.5em;
 }
 
