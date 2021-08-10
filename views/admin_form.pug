@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  h1= title
 
   if (!user.admin)  
-    form(action="/admin" method="POST")
+    form.auth-form(action="/admin" method="POST")
+      h2= title
       div
         label(for="passcode") Enter the Admin Passcode: 
-        input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
+        input#passcode(type="password" name="passcode" required="true")
       button(type="submit") Submit Passcode
 
     if (passcodeError)
@@ -17,4 +17,6 @@ block content
       p #{errors}
 
   else
-    p You are already an admin!
+    div(style="width: 50%; margin: 0 auto; text-align: center")
+      h2 You are already an admin!
+      img(src="../images/admin2.png", alt="", style="height: 150px; margin-top: 2em;")

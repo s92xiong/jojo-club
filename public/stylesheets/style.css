@@ -189,7 +189,13 @@ body {
   .msg-container {
     width: 100%;
     margin: 1.5em auto;
-  } 
+  }
+
+  .msg-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
 
@@ -284,3 +290,7 @@ body {
     padding: 2em;
   }
 }
+
+
+/* -------------------------- FORM (MEMBER/ADMIN) LIST --------------------- */
+

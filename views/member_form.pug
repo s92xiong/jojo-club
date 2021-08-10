@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1= title
 
   if (!user.member)  
-    form(action="/member" method="POST")
+    form.auth-form(action="/member" method="POST")
+      h2= title
       div
-        label(for="passcode") Enter the Passcode: 
+        label(for="passcode") Enter the Member Passcode: 
         input#passcode(type="password" placeholder="Passcode" name="passcode" required="true")
       button(type="submit") Submit Passcode
 
@@ -17,4 +17,6 @@ block content
       p #{errors}
 
   else
-    p You are already a member!
+    div(style="width: auto; margin: 0 auto; text-align: center")
+      h2 You are already a member!
+      img(src="../images/member.png", alt="", style="height: 150px; margin-top: 2em")
