@@ -8,10 +8,9 @@ block content
       div
         label(for="passcode") Enter the Member Passcode: 
         input#passcode(type="password" name="passcode" required="true")
+        if (passcodeError)
+          p(style="color: red") #{passcodeError}
       button(type="submit") Submit Passcode
-
-    if (passcodeError)
-      p(style="color: red") #{passcodeError}
 
     if (errors)
       p #{errors}
