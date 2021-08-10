@@ -5,10 +5,10 @@ block content
     h2= title 
     div.title-container
       label(for="messageTitle") Title:
-      input#messageTitle(type="text" placeholder="Enter a title" name="messageTitle" required="true" maxLength="50")
+      input#messageTitle(type="text" name="messageTitle" required="true" maxLength="50")
     div.text-container
       label(for="messageText") Message:
-      input#messageText(type="text" placeholder="Enter a message" name="messageText" required="true")
+      input#messageText(type="text" name="messageText" required="true")
     button(type="submit") Submit Message
 
   if (errors)

@@ -245,7 +245,7 @@ body {
 }
 
 .auth-form div label {
-  margin: 0.25em 0;
+  margin: 0.5em 0;
   font-size: 0.9em;
   font-weight: 600;
 }
@@ -289,13 +289,13 @@ body {
 @media only screen and (max-width: 768px) {
   .auth-form {
     width: 80%;
+    padding: 2em;
   }
 }
 
 @media only screen and (max-width: 576px) {
   .auth-form {
     width: 100%;
-    padding: 2em;
   }
 }
 
