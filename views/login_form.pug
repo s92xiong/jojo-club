@@ -1,15 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  form(action="/log-in" method="POST")
+  form.auth-form(action="/log-in" method="POST")
+    img.sign-up-img(src="../images/sign-up.png", alt="")
+    h1= title
+    p.auth-alternative Don't have an account? 
+      a(href="sign-up") Sign up
     div
       label(for="username") Username: 
-      input#username(type="text" placeholder="Username" name="username" required="true")
+      input#username(type="text" name="username" required="true")
 
     div
       label(for="password") Password: 
-      input#password(type="password" placeholder="Password" name="password" required="true")
+      input#password(type="password" name="password" required="true")
     button(type="submit") Login
 
   if (errors)

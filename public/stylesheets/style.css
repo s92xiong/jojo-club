@@ -65,6 +65,7 @@ body {
 
 .navbar ul li:hover {
   background-color: #d40b00;
+  /* background-color: #f1623f; */
   border-radius: 2px;
 }
 
@@ -126,6 +127,7 @@ body {
   padding: 1.5em 1.5em 0 1.5em;
   background-color: white;
   border-radius: 0.5em;
+  box-shadow: 0 0 3px 3px rgba(255, 255, 255);
 }
 
 .msg-title {
@@ -187,7 +189,98 @@ body {
   .msg-container {
     width: 100%;
     margin: 1.5em auto;
+  } 
+}
+
+
+/* -------------------------- FORM (LOGIN/SIGNUP) LIST --------------------- */
+
+
+.auth-form {
+  width: 60%;
+  margin: 0 auto;
+  padding: 2em 5em;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255);
+  border-radius: 0.5em;
+}
+
+.sign-up-img {
+  width: 60px;
+  float: right;
+}
+
+.auth-alternative {
+  margin: 1em 0;
+  font-size: 0.8em;
+}
+
+.auth-alternative a {
+  text-decoration: none;
+  color: rgb(50, 116, 187);
+}
+
+.auth-alternative a:hover {
+  text-decoration: underline;
+}
+
+.auth-form div {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0 1em 0;
+}
+
+.auth-form div label {
+  margin: 0.25em 0;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.auth-form div input {
+  background-color: rgb(230, 230, 230);
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.auth-form button {
+  margin-top: 0.75em;
+  border: none;
+  border-radius: 7px;
+  height: 35px;
+  padding: 0 1.5em;
+  color: white;
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: #d40b00;
+  cursor: pointer;
+  transition: 250ms;
+  font-weight: 500;
+}
+
+.auth-form button:hover {
+  background-color: #e21c11;
+}
+
+@media only screen and (max-width: 992px) {
+  .auth-form {
+    width: 60%;
   }
 
-  
+  .auth-form button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .auth-form {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .auth-form {
+    width: 100%;
+    padding: 2em;
+  }
 }
