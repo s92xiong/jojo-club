@@ -1,8 +1,8 @@
 extends layout 
 
 block content 
-  h1= title 
-  form(action="/create-message" method="POST")
+  form.auth-form(action="/create-message" method="POST")
+    h2= title 
     div.title-container
       label(for="messageTitle") Title:
       input#messageTitle(type="text" placeholder="Enter a title" name="messageTitle" required="true" maxLength="50")
