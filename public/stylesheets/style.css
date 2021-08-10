@@ -215,7 +215,7 @@ body {
   margin: 0 auto;
   padding: 2em 5em;
   background-color: azure;
-  box-shadow: 0 0 5px 5px azure;
+  box-shadow: 0 0 3px 3px azure;
   border-radius: 0.5em;
 }
 
