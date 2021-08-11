@@ -2,7 +2,7 @@ extends layout
 
 block content
   form.auth-form(action="/sign-up" method="POST")
-    img.sign-up-img(src="../images/sign-up.png", alt="")
+    img.sign-up-img(src="../images/stone-mask.png", alt="")
     h1= title
     p.auth-alternative Already registered? 
       a(href="log-in") Log in
@@ -19,6 +19,26 @@ block content
       input#confirmPassword(type="password" name="confirmPassword" required="true")
       if (passwordConfirmationError)
         p(style="color: red;") #{passwordConfirmationError}
+      label(style="margin-top: 1em") Select an Avatar: 
+    section.avatar-container
+      //- Input before label for css styling radio button when selected
+      input#jonathan(type="radio" name="avatar" value="jonathan" required="true")
+      label.avatar.jonathan(for="jonathan")
+
+      input#joseph(type="radio" name="avatar" value="joseph" required="true")
+      label.avatar.joseph(for="joseph")
+
+      input#jotaro(type="radio" name="avatar" value="jotaro" required="true")
+      label.avatar.jotaro(for="jotaro")
+
+      input#josuke(type="radio" name="avatar" value="josuke" required="true")
+      label.avatar.josuke(for="josuke")
+
+      input#giorno(type="radio" name="avatar" value="giorno" required="true")
+      label.avatar.giorno(for="giorno")
+
+      input#jolyne(type="radio" name="avatar" value="jolyne" required="true")
+      label.avatar.jolyne(for="jolyne")
     button(type="submit") Register
 
   if (errors)

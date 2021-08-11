@@ -39,7 +39,7 @@ body {
 }
 
 .navbar {
-  margin: 2em 0;
+  margin: 1em 0;
   width: 100%;
   height: 60px;
   background-color: #282424;
@@ -213,7 +213,7 @@ body {
 .auth-form {
   width: 60%;
   margin: 0 auto;
-  padding: 2em 5em;
+  padding: 1.5em 4em;
   background-color: azure;
   box-shadow: 0 0 3px 3px azure;
   border-radius: 0.5em;
@@ -241,7 +241,7 @@ body {
 .auth-form div {
   display: flex;
   flex-direction: column;
-  margin: 0.5em 0 1em 0;
+  margin: 0.25em 0 0.5em 0;
 }
 
 .auth-form div label {
@@ -276,6 +276,54 @@ body {
   background-color: #e21c11;
 }
 
+.avatar-container {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  overflow-x: scroll;
+  margin: 0.25em 0;
+}
+
+.avatar-container input {
+  display: none;
+}
+
+/* Show which avatar is selected by adding border over a JoJo character */
+.avatar-container input:checked + .avatar{
+  border: 5px solid #3993f3;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 5px solid rgba(255, 255, 255, 0);
+  background-position: bottom;
+  background-size: cover;
+  cursor: pointer;
+  /* margin: 0 auto 1em auto; */
+  margin: 0 1em;
+}
+
+.jonathan {
+  background-image: url("../images/0-jonathan-avatar.png");
+}
+.joseph {
+  background-image: url("../images/1-joseph-avatar-2.png");
+}
+.jotaro {
+  background-image: url("../images/2-jotaro-avatar.png");
+}
+.josuke {
+  background-image: url("../images/3-josuke-avatar.jpeg");
+}
+.giorno {
+  background-image: url("../images/4-giorno-avatar.jpeg");
+}
+.jolyne {
+  background-image: url("../images/5-jolyne-avatar.jpeg");
+}
+
 @media only screen and (max-width: 992px) {
   .auth-form {
     width: 60%;
@@ -297,8 +345,8 @@ body {
   .auth-form {
     width: 100%;
   }
+
+  /* .avatar-container {
+    grid-template-columns: 1fr 1fr;
+  } */
 }
-
-
-/* -------------------------- FORM (MEMBER/ADMIN) LIST --------------------- */
-

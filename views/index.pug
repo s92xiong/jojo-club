@@ -3,6 +3,14 @@ extends layout
 block content
   if (messages)
     div.messages-container
+      if (!user)
+        div.msg-container
+          h4.msg-title Hello, World!
+          p.msg-text Sign up and become a member using the passcode "jojo" to see more!
+          div.msg-info
+            p Posted by 
+              span.msg-username Speedwagon
+            p.msg-date 1868-04-04
       each message in messages
         div.msg-container
           //- Render usernames of messages only if the user is logged in and is a member
