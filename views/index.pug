@@ -13,24 +13,44 @@ block content
             p.msg-date 1868-04-04
       each message in messages
         div.msg-container
-          //- Render usernames of messages only if the user is logged in and is a member
-          if (user && user.member)
-            h4.msg-title= message.title
-            p.msg-text= message.text
-            div.msg-info
-              p Posted by 
-                span.msg-username #{message.user.username}
-              p.msg-date= message.date
-          else
-            h4.msg-title= message.title
-            p.msg-text= message.text
-            div.msg-info
-              p Posted by Anonymous
-              p Date: N/A
-          if (user && user.admin)
-            div.delete-msg
-              form(action="" method="POST")
-                input#messageId(type="hidden", name="messageId", required="true", value=message._id)
-                button(type="submit") Delete
+          div.msg-container-inner-left
+            if (!user || !user.member) 
+              div.msg-container-inner-avatar.giorno-anon
+            else 
+              if (user && user.member)
+                if (message.user.avatar==="jonathan")
+                  div.msg-container-inner-avatar.jonathan
+                if (message.user.avatar==="joseph")
+                  div.msg-container-inner-avatar.joseph
+                if (message.user.avatar==="jotaro")
+                  div.msg-container-inner-avatar.jotaro
+                if (message.user.avatar==="josuke")
+                  div.msg-container-inner-avatar.josuke
+                if (message.user.avatar==="giorno")
+                  div.msg-container-inner-avatar.giorno
+                if (message.user.avatar==="jolyne")
+                  div.msg-container-inner-avatar.jolyne
+          div.msg-container-inner-right
+            //- Render usernames of messages only if the user is logged in and is a member
+            if (user && user.member)
+              h4.msg-title= message.title
+              p.msg-text= message.text
+              div.msg-info
+                div.msg-avatar
+                p Posted by 
+                  span.msg-username #{message.user.username}
+                p.msg-date= message.date
+            else
+              h4.msg-title= message.title
+              p.msg-text= message.text
+              div.msg-info
+                div.msg-avatar
+                p Posted by Anonymous
+                p Date: N/A
+            if (user && user.admin)
+              div.delete-msg
+                form(action="" method="POST")
+                  input#messageId(type="hidden", name="messageId", required="true", value=message._id)
+                  button(type="submit") Delete
 
           //- img(src="../images/giorno-anon.png", alt="", style="width: 100px; border-radius: 100%;")
