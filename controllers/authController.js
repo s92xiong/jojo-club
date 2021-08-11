@@ -34,7 +34,8 @@ exports.signup_post = [
           username: req.body.username,
           password: hashedPassword,
           member: false,
-          admin: false
+          admin: false,
+          avatar: req.body.avatar,
         }).save(err => err ? next(err) : res.redirect("/"));
       });
     } catch (err) {
