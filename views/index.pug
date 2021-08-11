@@ -36,7 +36,6 @@ block content
               h4.msg-title= message.title
               p.msg-text= message.text
               div.msg-info
-                div.msg-avatar
                 p Posted by 
                   span.msg-username #{message.user.username}
                 p.msg-date= message.date
@@ -44,8 +43,8 @@ block content
               h4.msg-title= message.title
               p.msg-text= message.text
               div.msg-info
-                div.msg-avatar
-                p Posted by Anonymous
+                p Posted by 
+                  span.msg-username Anonymous
                 p Date: N/A
             if (user && user.admin)
               div.delete-msg

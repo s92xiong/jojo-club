@@ -130,6 +130,7 @@ body {
 
 .msg-container {
   width: 65%;
+  min-height: 180px;
   height: auto;
   margin: 3em auto;
   background-color: azure;
@@ -149,8 +150,8 @@ body {
 }
 
 .msg-container-inner-avatar {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 100%;
   background-color: teal;
   text-align: center;
@@ -160,7 +161,7 @@ body {
 
 .msg-container-inner-right {
   grid-area: msg-info;
-  padding: 1em 1em 0 1em;
+  padding: 2em 2em 2em 1em;
 }
 
 .msg-title {
@@ -179,8 +180,8 @@ body {
 .msg-info {
   border-top: 1px solid lightgrey;
   font-size: 0.8em;
-  margin: 2em 0 0 0;
-  padding: 2em 0 2em 0;
+  margin: 1.5em 0 0 0;
+  padding: 1.5em 0 0 0;
   display: flex;
   justify-content: space-between;
 }
