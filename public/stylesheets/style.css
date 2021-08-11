@@ -212,7 +212,7 @@ body {
 
 .auth-form {
   width: 60%;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 2em auto;
   padding: 1.5em 4em;
   background-color: azure;
   box-shadow: 0 0 3px 3px azure;
@@ -277,7 +277,7 @@ body {
 }
 
 .avatar-container {
-  height: 100px;
+  height: 110px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   overflow-x: scroll;
@@ -290,12 +290,13 @@ body {
 
 /* Show which avatar is selected by adding border over a JoJo character */
 .avatar-container input:checked + .avatar{
-  border: 5px solid #3993f3;
+  /* border: 5px solid #3993f3; */
+  border: 5px solid #d40b00;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 100%;
   border: 5px solid rgba(255, 255, 255, 0);
   background-position: bottom;

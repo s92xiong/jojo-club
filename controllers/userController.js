@@ -1,5 +1,6 @@
 const User = require("../models/userModel");
 const { body, validationResult } = require("express-validator");
+require("dotenv").config();
 
 exports.member_get = (req, res, next) => {
   if (!res.locals.currentUser) {
@@ -18,7 +19,7 @@ exports.member_post = [
     if (!errors.isEmpty()) {
       // If there is an error submitting the member validation form, re-render the form with an error
       return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser, errors: errors.array() });
-    } else if (req.body.passcode !== "jojo") {
+    } else if (req.body.passcode !== process.env.MEMBER_PASSCODE) {
       return res.render("member_form", { title: "Become a Member", user: res.locals.currentUser, passcodeError: "Wrong Passcode" });
     }
 
@@ -49,7 +50,7 @@ exports.admin_post = [
     if (!errors.isEmpty()) {
       // If there is an error submitting the member validation form, re-render the form with an error
       return res.render("admin_form", { title: "Become an Admin", user: res.locals.currentUser, errors: errors.array() });
-    } else if (req.body.passcode !== "stand") {
+    } else if (req.body.passcode !== process.env.ADMIN_PASSCODE) {
       return res.render("admin_form", { title: "Become an Admin", user: res.locals.currentUser, passcodeError: "Wrong Passcode" });
     }
 
