@@ -353,6 +353,9 @@ body {
 .giorno-anon {
   background-image: url("../images/giorno-anon.png");
 }
+.speedwagon {
+  background-image: url("../images/speedwagon-avatar.jpeg");
+}
 
 @media only screen and (max-width: 992px) {
   .auth-form {

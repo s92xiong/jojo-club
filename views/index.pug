@@ -5,12 +5,15 @@ block content
     div.messages-container
       if (!user)
         div.msg-container
-          h4.msg-title Hello, World!
-          p.msg-text Sign up and become a member using the passcode "jojo" to see more!
-          div.msg-info
-            p Posted by 
-              span.msg-username Speedwagon
-            p.msg-date 1868-04-04
+          div.msg-container-inner-left
+            div.msg-container-inner-avatar.speedwagon
+          div.msg-container-inner-right
+            h4.msg-title Hello, World!
+            p.msg-text To see additional information, register an account, then use the passcode "jojo" to become a member of The JoJo Club!
+            div.msg-info
+              p Posted by 
+                span.msg-username Speedwagon
+              p.msg-date 1868-04-04
       each message in messages
         div.msg-container
           div.msg-container-inner-left
