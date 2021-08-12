@@ -14,8 +14,9 @@ const helmet = require("helmet"); // Protects app from web vulnerabilities by se
 
 // Establish database connection
 const mongoose = require("mongoose");
-const dev_db_url = process.env.MONGODB_CONNECTION
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+// const dev_db_url = process.env.process.env.MONGODB_URI
+// const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Import routes
