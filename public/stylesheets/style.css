@@ -35,7 +35,7 @@ body {
 }
 
 .title:hover {
-  color: #f02494;
+  color: #d82085;
 }
 
 .navbar {
@@ -161,7 +161,7 @@ body {
 
 .msg-container-inner-right {
   grid-area: msg-info;
-  padding: 2em 2em 2em 1em;
+  padding: 2em 2em 2em 0;
 }
 
 .msg-title {
@@ -193,7 +193,8 @@ body {
 .delete-msg {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 0.5em;
+  margin-top: 1em;
+  /* padding-bottom: 0.5em; */
 }
 
 .delete-msg button {
@@ -292,14 +293,14 @@ body {
   padding: 0 1.5em;
   color: white;
   font-family: 'Red Hat Display', sans-serif;
-  background-color: #d40b00;
+  background-color: #f02494;
   cursor: pointer;
   transition: 250ms;
   font-weight: 500;
 }
 
 .auth-form button:hover {
-  background-color: #e21c11;
+  background-color: #da1f85;
 }
 
 .avatar-container {
@@ -317,7 +318,6 @@ body {
 /* Show which avatar is selected by adding border over a JoJo character */
 .avatar-container input:checked + .avatar{
   border: 5px solid #f02494;
-  /* border: 5px solid #3993f3; */
 }
 
 .avatar {
@@ -336,7 +336,7 @@ body {
   background-image: url("../images/0-jonathan-avatar.png");
 }
 .joseph {
-  background-image: url("../images/1-joseph-avatar-2.png");
+  background-image: url("../images/1-joseph-avatar.jpeg");
 }
 .jotaro {
   background-image: url("../images/2-jotaro-avatar.png");
@@ -355,6 +355,19 @@ body {
 }
 .speedwagon {
   background-image: url("../images/speedwagon-avatar.jpeg");
+}
+
+.jojo-world {
+  max-width: 85%;
+  min-width: 260px;
+  margin: 2em auto;
+  transition: 250ms;
+  border-radius: 1em;
+  box-shadow: 0 0 3px 3px rgb(31, 31, 31);
+}
+
+.jojo-world:hover {
+  box-shadow: 0 0 5px 5px rgb(31, 31, 31);
 }
 
 @media only screen and (max-width: 992px) {
@@ -379,7 +392,7 @@ body {
     width: 100%;
   }
 
-  /* .avatar-container {
-    grid-template-columns: 1fr 1fr;
-  } */
+  .jojo-world {
+    max-width: 100%;
+  }
 }

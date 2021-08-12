@@ -28,7 +28,7 @@ exports.member_post = [
 
     await User.findByIdAndUpdate(res.locals.currentUser._id, user, {}, (err) => {
       if (err) return next(err);
-      return res.redirect("/");
+      return res.redirect("/member");
     });
   },
 ];
