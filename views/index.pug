@@ -3,13 +3,13 @@ extends layout
 block content
   if (messages)
     div.messages-container
-      if (!user)
+      if (!user || !user.member)
         div.msg-container
           div.msg-container-inner-left
             div.msg-container-inner-avatar.speedwagon
           div.msg-container-inner-right
-            h4.msg-title Hello, World!
-            p.msg-text To see additional information, register an account, then use the passcode "jojo" to become a member of The JoJo Club!
+            h4.msg-title Hello, world!
+            p.msg-text To see additional information, register an account and log in, then use the passcode "jojo" to become a member of The JoJo Club!
             div.msg-info
               div.avatar-icon.speedwagon
               p Posted by 
