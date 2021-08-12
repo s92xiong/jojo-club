@@ -11,6 +11,7 @@ block content
             h4.msg-title Hello, World!
             p.msg-text To see additional information, register an account, then use the passcode "jojo" to become a member of The JoJo Club!
             div.msg-info
+              div.avatar-icon.speedwagon
               p Posted by 
                 span.msg-username Speedwagon
               p.msg-date 1868-04-04
@@ -39,6 +40,19 @@ block content
               h4.msg-title= message.title
               p.msg-text= message.text
               div.msg-info
+                if (user && user.member)
+                  if (message.user.avatar==="jonathan")
+                    div.avatar-icon.jonathan
+                  if (message.user.avatar==="joseph")
+                    div.avatar-icon.joseph
+                  if (message.user.avatar==="jotaro")
+                    div.avatar-icon.jotaro
+                  if (message.user.avatar==="josuke")
+                    div.avatar-icon.josuke
+                  if (message.user.avatar==="giorno")
+                    div.avatar-icon.giorno
+                  if (message.user.avatar==="jolyne")
+                    div.avatar-icon.jolyne
                 p Posted by 
                   span.msg-username #{message.user.username}
                 p.msg-date= message.date
@@ -46,6 +60,21 @@ block content
               h4.msg-title= message.title
               p.msg-text= message.text
               div.msg-info
+                if (user && user.member)
+                  if (message.user.avatar==="jonathan")
+                    div.avatar-icon.jonathan
+                  if (message.user.avatar==="joseph")
+                    div.avatar-icon.joseph
+                  if (message.user.avatar==="jotaro")
+                    div.avatar-icon.jotaro
+                  if (message.user.avatar==="josuke")
+                    div.avatar-icon.josuke
+                  if (message.user.avatar==="giorno")
+                    div.avatar-icon.giorno
+                  if (message.user.avatar==="jolyne")
+                    div.avatar-icon.jolyne
+                else
+                  div.avatar-icon.giorno-anon
                 p Posted by 
                   span.msg-username Anonymous
                 p Date: N/A

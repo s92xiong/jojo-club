@@ -23,6 +23,8 @@ body {
   right: 10px;
   color: white;
   font-size: 0.9em;
+  padding: 0 0.5em;
+  background-color: #00000075;
 }
 
 /* ------------------------------ NAVBAR ------------------------- */
@@ -208,6 +210,10 @@ body {
   color: red;
 }
 
+.avatar-icon {
+  display: none;
+}
+
 @media only screen and (max-width: 992px) {
   .msg-container {
     width: 75%;
@@ -223,13 +229,42 @@ body {
 @media only screen and (max-width: 576px) {
   .msg-container {
     width: 100%;
-    margin: 2em auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "msg-info"
+  }
+
+  .msg-container-inner-right {
+    padding: 1em;
+  }
+
+  .msg-container-inner-left {
+    display: none;
+  }
+
+  .msg-title {
+    text-align: center;
+    margin: 0.75em;
+  }
+
+  .msg-text {
+    text-align: center;
   }
 
   .msg-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .avatar-icon {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 1em;
   }
 }
 
