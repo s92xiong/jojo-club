@@ -207,7 +207,8 @@ body {
 }
 
 .delete-msg button:hover {
-  color: red;
+  color: #f02494;
+  font-weight: 500;
 }
 
 .avatar-icon {
