@@ -9,6 +9,8 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/userModel");
 const bcrypt = require("bcryptjs");
 const session = require("express-session"); // Dependency of passport.js
+const compression = require("compression"); // Decrease the size of the response body and hence increase the speed of a web app
+const helmet = require("helmet"); // Protects app from web vulnerabilities by setting HTTP headers appropriately
 
 // Establish database connection
 const mongoose = require("mongoose");
@@ -28,6 +30,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression()); // Compress all routes
+app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 
 passport.use(new LocalStrategy((username, password, done) => {

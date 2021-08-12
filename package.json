@@ -17,6 +17,7 @@
     "express": "~4.16.1",
     "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
+    "helmet": "^4.6.0",
     "http-errors": "~1.6.3",
     "luxon": "^2.0.1",
     "mongoose": "^5.13.5",
