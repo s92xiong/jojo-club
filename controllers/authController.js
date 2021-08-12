@@ -12,6 +12,7 @@ exports.signup_post = [
 	body("password").trim().isLength({ min: 1 }).escape().withMessage("Password must be at least 6 characters."),
   body("confirmPassword").trim().isLength({ min: 1 }).escape().withMessage("Password must be at least 6 characters.")
     .custom(async (value, { req }) => {
+      // Use the custom method w/ a CB func to ensure that both passwords match, return an error if so
       if (value !== req.body.password) throw new Error('Passwords must be the same');
       return true;
     }),
