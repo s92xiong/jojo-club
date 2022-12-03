@@ -8,15 +8,13 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/userModel");
 const bcrypt = require("bcryptjs");
-const session = require("express-session"); // Dependency of passport.js
+const session = require("cookie-session"); // Dependency of passport.js
 const compression = require("compression"); // Decrease the size of the response body and hence increase the speed of a web app
 const helmet = require("helmet"); // Protects app from web vulnerabilities by setting HTTP headers appropriately
 
 // Establish database connection
 const mongoose = require("mongoose");
-// const dev_db_url = process.env.process.env.MONGODB_URI
-// const mongoDB = process.env.MONGODB_URI || dev_db_url;
-const mongoDB = process.env.MONGODB_URI
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Import routes
